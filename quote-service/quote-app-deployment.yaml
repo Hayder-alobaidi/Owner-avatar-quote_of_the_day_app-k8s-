@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quote-app
+  namespace: quote-of-the-day-app  # Specify the namespace here
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quote-app
+  template:
+    metadata:
+      labels:
+        app: quote-app
+    spec:
+      containers:
+      - name: quote-app
+        image: hayder89/quote-service:latest
+        env:
+        - name: DATABASE_URI
+          value: mysql://admin:[MYSQL_USER_PASSWORD]@mysql:3306/quotesdb
+        ports:
+        - containerPort: 5000
