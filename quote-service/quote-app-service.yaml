@@ -5,7 +5,7 @@ metadata:
   namespace: quote-of-the-day-app  # Specify the namespace here
 spec:
   selector:
-    app: quote-app
+    app: quote-service-frontend
   ports:
   - port: 5000
     targetPort: 5000

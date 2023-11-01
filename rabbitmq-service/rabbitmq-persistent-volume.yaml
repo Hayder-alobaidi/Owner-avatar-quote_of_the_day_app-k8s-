@@ -2,6 +2,7 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: rabbitmq-pv
+  namespace: quote-of-the-day-app
   labels:
     type: local
 spec:

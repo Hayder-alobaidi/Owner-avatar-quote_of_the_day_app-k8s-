@@ -8,11 +8,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: rabbitmq
+      app: rabbitmq-service
   template:
     metadata:
       labels:
-        app: rabbitmq
+        app: rabbitmq-service
     spec:
       initContainers:
       - name: setup-rabbitmq
@@ -53,6 +53,7 @@ spec:
       name: rabbitmq-data
     spec:
       accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "manual"  # Add this line
       resources:
         requests:
           storage: 2Gi

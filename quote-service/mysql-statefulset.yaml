@@ -8,7 +8,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mysql
+      app: quote-service-backend
   template:
     metadata:
       labels:
