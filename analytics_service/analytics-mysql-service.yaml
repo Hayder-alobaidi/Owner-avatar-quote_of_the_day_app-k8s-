@@ -1,0 +1,10 @@
+# mysql-service.yaml for analytics-service
+apiVersion: v1
+kind: Service
+metadata:
+  name: analytics-mysql
+spec:
+  ports:
+  - port: 3306
+  selector:
+    app: analytics-service-backend

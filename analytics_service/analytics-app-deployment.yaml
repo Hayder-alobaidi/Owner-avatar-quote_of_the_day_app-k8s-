@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: analytics-app
+  namespace: quote-of-the-day-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: analytics-service
+  template:
+    metadata:
+      labels:
+        app: analytics-service
+    spec:
+      containers:
+      - name: analytics-app
+        image: YOUR_IMAGE_PATH/analytics-service:latest  # replace with your image path
+        env:
+        - name: MYSQL_USER_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: analytics-mysql-secret
+              key: userpassword
+        - name: RABBITMQ_USER
+          valueFrom:
+            secretKeyRef:
+              name: rabbitmq-secret
+              key: rabbitmq-username
+        - name: RABBITMQ_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: rabbitmq-secret
+              key: rabbitmq-password
+        - name: DATABASE_URI
+          value: mysql://admin:$(MYSQL_USER_PASSWORD)@mysql:3306/analyticsdb
+        - name: RABBITMQ_URL
+          value: "amqp://$(RABBITMQ_USER):$(RABBITMQ_PASSWORD)@rabbitmq:5672/"
+        ports:
+        - containerPort: 5001

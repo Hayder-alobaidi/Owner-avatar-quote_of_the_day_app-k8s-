@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: analytics-mysql
+  namespace: analytics-service-app
+spec:
+  serviceName: "analytics-mysql"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: analytics-service-backend
+  template:
+    metadata:
+      labels:
+        app: analytics-service-backend
+    spec:
+      containers:
+      - name: mysql
+        image: mysql:5.7
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: analytics-mysql-secret
+              key: rootpassword
+        - name: MYSQL_DATABASE
+          value: analyticsdb
+        - name: MYSQL_USER
+          value: admin
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: analytics-mysql-secret
+              key: userpassword
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+        - name: analytics-mysql-storage
+          mountPath: /var/lib/mysql
+  volumeClaimTemplates:
+  - metadata:
+      name: analytics-mysql-storage
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "manual"
+      resources:
+        requests:
+          storage: 2Gi
