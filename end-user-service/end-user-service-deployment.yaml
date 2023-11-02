@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: end-user-service-frontend
+  namespace: quote-of-the-day-app 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: end-user-service-frontend
+  template:
+    metadata:
+      labels:
+        app: end-user-service-frontend
+    spec:
+      containers:
+      - name: user-frontend
+        image: hayder89/end-user-service:latest  # replace with your actual image
+        ports:
+        - containerPort: 5002
