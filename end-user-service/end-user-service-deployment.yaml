@@ -16,5 +16,11 @@ spec:
       containers:
       - name: user-frontend
         image: hayder89/end-user-service:latest  # replace with your actual image
+        env:
+        - name: QUOTE_SERVICE_URL
+          value: "http://quote-service:5000"
+        - name: ANALYTICS_SERVICE_URL
+          value: "http://analytics-service:5001"
+
         ports:
         - containerPort: 5002
