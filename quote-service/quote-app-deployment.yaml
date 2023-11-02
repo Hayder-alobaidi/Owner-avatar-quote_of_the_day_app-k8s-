@@ -17,8 +17,13 @@ spec:
       - name: quote-app
         image: hayder89/quote-service:latest
         env:
+        - name: MYSQL_USER_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret 
+              key: userpassword
         - name: DATABASE_URI
-          value: mysql://admin:[MYSQL_USER_PASSWORD]@mysql:3306/quotesdb
+          value: mysql://admin:$(MYSQL_USER_PASSWORD)@mysql:3306/quotesdb
         - name: RABBITMQ_URL
           value: "amqp://$(RABBITMQ_USER):$(RABBITMQ_PASSWORD)@rabbitmq:5672/"
         - name: RABBITMQ_USER
