@@ -1,3 +1,3 @@
-curl -X POST 10.106.237.180:5000/quotes -H "Content-Type: application/json" -d '{"text": "This is a new quote."}'
+curl -X POST 10.98.158.97:5000/quotes -H "Content-Type: application/json" -d '{"text": "This is a new quote."}'
 
-curl http://10.106.237.180:5000/quote
+curl http://10.98.158.97:5000/quote

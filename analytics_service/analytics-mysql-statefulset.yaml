@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: analytics-mysql
-  namespace: analytics-service-app
+  namespace: quote-of-the-day-app
 spec:
   serviceName: "analytics-mysql"
   replicas: 1
