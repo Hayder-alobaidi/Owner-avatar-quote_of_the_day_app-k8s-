@@ -1,4 +1,19 @@
+# rabbitmq-ha chart found here: 
+# https://artifacthub.io/packages/helm/bitnami/rabbitmq
+
+# Requested Rabbit MQ "nodes" (StatefulSet Pods), not to be confused with Kubernetes "nodes".
+replicaCount: 1
+
+# Exposed dashboard as NodePort for demonstration purposes.
+service:
+  type: NodePort 
+  nodePorts:
+    manager: 31000
+
+# Admin credentials, use these for sign in to RabbitMQ dashboard
 auth:
   username: admin
   password: admin
 
+persistence:
+  enabled: false
