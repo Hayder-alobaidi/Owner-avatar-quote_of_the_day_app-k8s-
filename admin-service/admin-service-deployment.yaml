@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: admin-service-frontend
+  namespace: quote-of-the-day-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: admin-service-frontend
+  template:
+    metadata:
+      labels:
+        app: admin-service-frontend
+    spec:
+      containers:
+      - name: admin-frontend
+        image: hayder89/admin-service:latest  
+        env:
+        - name: QUOTE_SERVICE_URL
+          value: "http://quote-service.quote-of-the-day-app.svc.cluster.local:5000"
+        - name: ANALYTICS_SERVICE_URL
+          value: "http://analytics-service.quote-of-the-day-app.svc.cluster.local:5001"
+        ports:
+        - containerPort: 5003  
