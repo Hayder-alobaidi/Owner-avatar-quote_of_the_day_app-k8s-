@@ -18,9 +18,9 @@ spec:
         image: hayder89/end-user-service:latest  # replace with your actual image
         env:
         - name: QUOTE_SERVICE_URL
-          value: "http://quote-service:5000"
+          value: "quote-service.quote-of-the-day-app.svc.cluster.local:5000"
         - name: ANALYTICS_SERVICE_URL
-          value: "http://analytics-service:5001"
+          value: "analytics-service.quote-of-the-day-app.svc.cluster.local:5001"
 
         ports:
         - containerPort: 5002
