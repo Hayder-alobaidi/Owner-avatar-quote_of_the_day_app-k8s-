@@ -16,6 +16,7 @@ spec:
       containers:
       - name: user-frontend
         image: hayder89/end-user-service:latest  # replace with your actual image
+        imagePullPolicy: Always
         env:
         - name: QUOTE_SERVICE_URL
           value: "http://quote-service.quote-of-the-day-app.svc.cluster.local:5000"

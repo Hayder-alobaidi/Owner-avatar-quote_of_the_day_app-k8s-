@@ -16,6 +16,7 @@ spec:
       containers:
       - name: analytics-app
         image: hayder89/analytics-service:1  # replace with your image path
+        imagePullPolicy: Always
         env:
         - name: MYSQL_USER_PASSWORD
           valueFrom:

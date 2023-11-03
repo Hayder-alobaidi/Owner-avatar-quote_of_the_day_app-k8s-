@@ -15,7 +15,8 @@ spec:
     spec:
       containers:
       - name: admin-frontend
-        image: hayder89/admin-service:latest  
+        image: hayder89/admin-service:1
+        imagePullPolicy: Always
         env:
         - name: QUOTE_SERVICE_URL
           value: "http://quote-service.quote-of-the-day-app.svc.cluster.local:5000"

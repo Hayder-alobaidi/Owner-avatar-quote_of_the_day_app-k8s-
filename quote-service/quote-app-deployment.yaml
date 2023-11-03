@@ -16,6 +16,7 @@ spec:
       containers:
       - name: quote-app
         image: hayder89/quote-service:latest
+        imagePullPolicy: Always
         env:
         - name: MYSQL_USER_PASSWORD
           valueFrom:
