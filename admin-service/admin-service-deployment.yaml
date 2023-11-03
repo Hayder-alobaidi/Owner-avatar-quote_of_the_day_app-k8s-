@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: admin-frontend
-        image: hayder89/admin-service:1
+        image: hayder89/admin-service:latest
         imagePullPolicy: Always
         env:
         - name: QUOTE_SERVICE_URL
