@@ -1,5 +1,16 @@
 ![quote_of_the_day_app_digram](https://github.com/Hayder-alobaidi/quote_of_the_day_app-k8s/assets/93683931/6aa7eefc-cd59-4baf-8737-a60755354cc4)
-https://github.com/Hayder-alobaidi/quote_of_the_day_app-k8s/blob/main/App-demo.mp4
+
+
+## Demo
+https://github.com/Hayder-alobaidi/quote_of_the_day_app-k8s/assets/93683931/61e852c6-d600-455a-b6f8-f01f78b48cce
+
+## kubernetes deployment demo 
+
+
+https://github.com/Hayder-alobaidi/quote_of_the_day_app-k8s/assets/93683931/b58dfb76-0dec-4974-961a-f26b96901200
+
+
+
 # Quote Of The Day App
 
 ## 🌟 Overview
